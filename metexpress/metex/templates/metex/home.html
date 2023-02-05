@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+<div class="home-container">
+    <!--Debates Left side -->
+    <div>
+        {% include 'metex/debate_component.html' %}
+    </div>
+
+    <!--All Villages-->
+    <div>
+        <h5>{{village_count}} villages available</h5>
+        <a href="{% url 'create-village' %}">Create Village</a>
+        
+        {% include 'metex/feed_component.html '%}
+    </div>
+
+    </div>
+  <!--Current Discussion Right side -->
+    <div>
+       {% include 'metex/discussion_component.html '%}
+    </div>
+
+  
+</div>
+
+{% endblock content %}

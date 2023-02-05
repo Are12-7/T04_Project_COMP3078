@@ -1,0 +1,14 @@
+<h3>Current Discussions</h3>
+<hr>
+{% for discussion in village_discussions %}
+<div>
+    <small>@{{discussion.user}} {{discussion.created|timesince}}</small>
+    <small>replied to: "{{discussion.village}}"</small>
+    <p>{{discussion}}</p>
+    <!--Display delete option only to message owner-->
+    {% if request.user == discussion.user %}
+    <a href="{% url 'delete-discussion' discussion.id %}">Delete</a>
+    {% endif %}
+    <hr>
+</div>
+{% endfor %}

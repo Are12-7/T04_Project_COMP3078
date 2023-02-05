@@ -1,0 +1,14 @@
+<h3>Find Village</h3>
+        <hr>
+
+        <div>
+            <a href="{% url 'home' %}">ALL</a>
+        </div>
+        <!--List all villages debates by Name-->
+        {% for debate in debates %}
+        <div>
+            <a href="{% url 'home' %}?q={{debate.topic}}">{{debate.topic}}</a>
+        </div>
+        {% endfor %}
+
+        

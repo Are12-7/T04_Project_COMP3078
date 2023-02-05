@@ -1,0 +1,17 @@
+<div>
+    <!--Display all villages-->
+    {% for village in villages %}
+    <div>
+        <!--Display edit and delete option only to host-->
+        {% if request.user == village.host %}
+        <!--Edit option-->
+        <a href="{% url 'update-village' village.id %}">Edit</a>
+        <!--Delete option-->
+        <a href="{% url 'delete-village' village.id %}">Delete</a>
+        {% endif %}
+        <span>@{{village.host.username}}</span>
+        <h5>{{village.id}} -- <a href="{% url 'village' village.id %}">{{village.title}}</a></h5>
+        <small>{{village.thread.topic}}</small>
+        <hr>
+    </div>
+    {% endfor%}
